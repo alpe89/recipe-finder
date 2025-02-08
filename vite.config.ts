@@ -11,6 +11,9 @@ export default defineConfig({
       "@components": path.resolve(__dirname, "src/components"),
       "@constants": path.resolve(__dirname, "src/constants"),
       "@mocks": path.resolve(__dirname, "src/mocks"),
+      "@search": path.resolve(__dirname, "src/Search"),
+      "@services": path.resolve(__dirname, "src/services"),
+      "@recipe": path.resolve(__dirname, "src/Recipe"),
     },
   },
   plugins: [

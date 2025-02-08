@@ -27,7 +27,13 @@
       "@components/*": ["src/components/*"],
       "@constants": ["src/constants/"],
       "@constants/*": ["src/constants/*"],
-      "@mocks": ["src/mocks/"]
+      "@mocks": ["src/mocks/"],
+      "@search": ["src/Search/"],
+      "@search/*": ["src/Search/*"],
+      "@services": ["src/services/"],
+      "@services/*": ["src/services/*"],
+      "@recipe": ["src/Recipe/"],
+      "@recipe/*": ["src/Recipe/*"]
     }
   },
   "include": ["src"]
