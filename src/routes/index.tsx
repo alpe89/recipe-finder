@@ -25,9 +25,5 @@ function Index() {
 
   console.log(data);
 
-  return (
-    <main>
-      <h1>Plate Pilot</h1>
-    </main>
-  );
+  return <section>Index Page</section>;
 }

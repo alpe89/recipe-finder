@@ -11,9 +11,16 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as FavouritesImport } from './routes/favourites'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const FavouritesRoute = FavouritesImport.update({
+  id: '/favourites',
+  path: '/favourites',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -32,6 +39,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/favourites': {
+      id: '/favourites'
+      path: '/favourites'
+      fullPath: '/favourites'
+      preLoaderRoute: typeof FavouritesImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -39,32 +53,37 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/favourites': typeof FavouritesRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/favourites': typeof FavouritesRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/favourites': typeof FavouritesRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/favourites'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/favourites'
+  id: '__root__' | '/' | '/favourites'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FavouritesRoute: typeof FavouritesRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FavouritesRoute: FavouritesRoute,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +96,15 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/favourites"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/favourites": {
+      "filePath": "favourites.tsx"
     }
   }
 }
