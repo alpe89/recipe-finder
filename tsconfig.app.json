@@ -33,7 +33,9 @@
       "@services": ["src/services/"],
       "@services/*": ["src/services/*"],
       "@recipe": ["src/Recipe/"],
-      "@recipe/*": ["src/Recipe/*"]
+      "@recipe/*": ["src/Recipe/*"],
+      "@favourites": ["src/Favourites/"],
+      "@favourites/*": ["src/Favourites/*"]
     }
   },
   "include": ["src"]

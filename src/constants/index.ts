@@ -1,5 +1,13 @@
 export const BASE_URL = "https://recipe-pilot.com";
 
+export const LOCAL_STORAGE_NAME = "recipe-pilot-storage";
+
+export type FavouriteList = number[];
+
+export const LOCAL_STORAGE_DEFAULT_STATE: { favourites: FavouriteList } = {
+  favourites: [],
+};
+
 export const RECIPES = [
   {
     id: 1,

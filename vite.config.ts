@@ -14,6 +14,7 @@ export default defineConfig({
       "@search": path.resolve(__dirname, "src/Search"),
       "@services": path.resolve(__dirname, "src/services"),
       "@recipe": path.resolve(__dirname, "src/Recipe"),
+      "@favourites": path.resolve(__dirname, "src/favourites"),
     },
   },
   plugins: [
