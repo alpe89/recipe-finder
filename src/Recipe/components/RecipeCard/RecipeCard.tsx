@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import { Recipe } from "@services";
 import {
@@ -12,9 +13,10 @@ import placeholder from "../../../assets/placeholder.svg";
 
 type RecipeCardProps = Recipe;
 
-const RecipeCard = ({ id, name, description }: RecipeCardProps) => {
+const RecipeCard = ({ id, name, description, image }: RecipeCardProps) => {
   useFavourites();
-  const isBookmarked = isRecipeSaved(id);
+
+  const isBookmarked = useMemo(() => isRecipeSaved(id), [id]);
   const bookmarkedClass = isBookmarked ? "text-brand" : "text-gray-400";
 
   const handleBookmarkClick = () => {
@@ -29,7 +31,7 @@ const RecipeCard = ({ id, name, description }: RecipeCardProps) => {
     <li className="bg-white rounded-lg shadow-md overflow-hidden">
       <figure className="aspect-auto">
         <img
-          src={placeholder}
+          src={image ?? placeholder}
           alt={name}
           className="w-full h-48 object-cover"
         />
@@ -47,7 +49,8 @@ const RecipeCard = ({ id, name, description }: RecipeCardProps) => {
         <p className="text-gray-600 mb-4">{description}</p>
         <div className="flex justify-between items-center">
           <Link
-            href={`/recipe/${id}`}
+            to={`/recipe/$recipeId`}
+            params={{ recipeId: id.toString() }}
             className="text-primary hover:text-primary-dark transition-colors"
           >
             View Recipe

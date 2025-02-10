@@ -3,6 +3,7 @@ import { BASE_URL } from "@constants";
 export type Recipe = {
   id: number;
   name: string;
+  image?: string;
   description: string;
   ingredients: string[];
   steps: string[];
