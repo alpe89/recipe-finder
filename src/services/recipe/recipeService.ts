@@ -15,7 +15,7 @@ export type RecipeResponse = {
 
 export const getRecipes = async (): Promise<RecipeResponse> => {
   try {
-    const response = await fetch(`${BASE_URL}/recipes`);
+    const response = await fetch(`${BASE_URL}/recipe`);
 
     if (!response.ok) {
       throw new Error("failed to fetch recipes");
@@ -24,5 +24,19 @@ export const getRecipes = async (): Promise<RecipeResponse> => {
     return await response.json();
   } catch {
     throw new Error("unexpected error in fetching recipes");
+  }
+};
+
+export const getRecipe = async (id: number): Promise<Recipe> => {
+  try {
+    const response = await fetch(`${BASE_URL}/recipe/${id}`);
+
+    if (!response.ok) {
+      throw new Error(`failed to fetch recipe id: ${id}`);
+    }
+
+    return await response.json();
+  } catch {
+    throw new Error(`unexpected error in fetching recipe id: ${id}`);
   }
 };
