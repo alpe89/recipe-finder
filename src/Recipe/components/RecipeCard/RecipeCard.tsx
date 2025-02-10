@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import { Recipe } from "@services";
 import {
@@ -7,7 +6,7 @@ import {
   removeRecipe,
   saveRecipe,
 } from "@favourites";
-import { BookmarkIcon } from "./components";
+import { BookmarkIcon } from "../BookmarkIcon";
 
 import placeholder from "../../../assets/placeholder.svg";
 
@@ -16,7 +15,7 @@ type RecipeCardProps = Recipe;
 const RecipeCard = ({ id, name, description, image }: RecipeCardProps) => {
   useFavourites();
 
-  const isBookmarked = useMemo(() => isRecipeSaved(id), [id]);
+  const isBookmarked = isRecipeSaved(id);
   const bookmarkedClass = isBookmarked ? "text-brand" : "text-gray-400";
 
   const handleBookmarkClick = () => {
