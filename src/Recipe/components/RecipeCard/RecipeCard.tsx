@@ -1,31 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { Recipe } from "@services";
-import {
-  isRecipeSaved,
-  useFavourites,
-  removeRecipe,
-  saveRecipe,
-} from "@favourites";
-import { BookmarkIcon } from "../BookmarkIcon";
+import { BookmarkButton } from "../BookmarkButton";
 
 import placeholder from "../../../assets/placeholder.svg";
 
 type RecipeCardProps = Recipe;
 
 const RecipeCard = ({ id, name, description, image }: RecipeCardProps) => {
-  useFavourites();
-
-  const isBookmarked = isRecipeSaved(id);
-  const bookmarkedClass = isBookmarked ? "text-brand" : "text-gray-400";
-
-  const handleBookmarkClick = () => {
-    if (isBookmarked) {
-      removeRecipe(id);
-    } else {
-      saveRecipe(id);
-    }
-  };
-
   return (
     <li className="bg-white rounded-lg shadow-md overflow-hidden">
       <figure className="aspect-auto">
@@ -38,12 +19,7 @@ const RecipeCard = ({ id, name, description, image }: RecipeCardProps) => {
       <div className="p-4">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-semibold mb-2">{name}</h2>
-          <button
-            className={`${bookmarkedClass} hover:text-brand transition-colors cursor-pointer`}
-            onClick={handleBookmarkClick}
-          >
-            <BookmarkIcon />
-          </button>
+          <BookmarkButton id={id} />
         </div>
         <p className="text-gray-600 mb-4">{description}</p>
         <div className="flex justify-between items-center">

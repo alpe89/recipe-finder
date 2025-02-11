@@ -1,32 +1,11 @@
-import {
-  isRecipeSaved,
-  removeRecipe,
-  saveRecipe,
-  useFavourites,
-} from "@favourites";
 import { Recipe } from "@services";
-import { IngredientsIcon, StepsIcon } from "./components";
+import { BookmarkButton, IngredientsIcon, StepsIcon } from "./components";
 
 import placeholder from "../assets/placeholder.svg";
 
 type RecipePageProps = Recipe;
 
 const RecipePage = (recipe: RecipePageProps) => {
-  useFavourites();
-
-  const isBookmarked = isRecipeSaved(recipe.id);
-  const bookmarkText = isBookmarked
-    ? "Remove from my favourites!"
-    : "Add to my favourites!";
-
-  const handleBookmarkClick = () => {
-    if (isBookmarked) {
-      removeRecipe(recipe.id);
-    } else {
-      saveRecipe(recipe.id);
-    }
-  };
-
   return (
     <section className="bg-white rounded-lg shadow-md overflow-hidden">
       <figure className="aspect-auto">
@@ -39,12 +18,7 @@ const RecipePage = (recipe: RecipePageProps) => {
       <div className="p-6">
         <h1 className="text-3xl font-bold mb-4 text-brand flex items-center justify-between">
           {recipe.name}
-          <button
-            className="bg-brand hover:bg-green-800 text-white text-xs transition-colors cursor-pointer rounded-md flex items-center p-1 mt-0.5"
-            onClick={handleBookmarkClick}
-          >
-            {bookmarkText}
-          </button>
+          <BookmarkButton id={recipe.id} />
         </h1>
         <p className="text-gray-600 mb-6">{recipe.description}</p>
         <div className="mb-6">
