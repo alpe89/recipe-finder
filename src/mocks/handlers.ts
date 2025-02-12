@@ -32,6 +32,15 @@ export const handlers = [
       recipes,
     });
   }),
+  http.post(`${BASE_URL}/recipe`, async ({ request }) => {
+    const body = (await request.json()) as { ids: number[] };
+
+    const recipes = RECIPES.filter((recipe) => {
+      return body.ids.includes(recipe.id);
+    });
+
+    return HttpResponse.json({ recipes }, { status: 200 });
+  }),
   http.get(`${BASE_URL}/recipe/:id`, ({ params }) => {
     delay(1000);
     const { id } = params;

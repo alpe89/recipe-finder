@@ -52,6 +52,25 @@ export const getSearchedRecipes = async (
   }
 };
 
+export const getFavouriteRecipes = async (
+  list: number[]
+): Promise<RecipeResponse> => {
+  try {
+    const response = await fetch(`${BASE_URL}/recipe`, {
+      method: "POST",
+      body: JSON.stringify({ ids: list }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`failed to fetch favourite recipes`);
+    }
+
+    return await response.json();
+  } catch {
+    throw new Error(`unexpected error in fetching favourite recipes`);
+  }
+};
+
 export const getRecipe = async (id: number): Promise<Recipe> => {
   try {
     const response = await fetch(`${BASE_URL}/recipe/${id}`);
