@@ -4,7 +4,7 @@ import {
   saveRecipe,
   useFavourites,
 } from "@favourites";
-import { Recipe } from "@services";
+import { Recipe } from "@search/service";
 import { HeartIcon } from "../HeartIcon";
 
 type BookmarkButtonProps = Pick<Recipe, "id">;

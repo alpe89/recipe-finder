@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Recipe } from "@services";
+import { Recipe } from "@search/service";
 import { BookmarkButton } from "../BookmarkButton";
 
 import placeholder from "../../../assets/placeholder.svg";

@@ -1,5 +1,4 @@
-import { RecipeCard } from "@recipe";
-import { Recipe } from "@services";
+import { RecipeCard, Recipe } from "@recipe";
 
 type SearchResultsProps = {
   results: Recipe[];

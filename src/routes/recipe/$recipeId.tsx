@@ -1,5 +1,5 @@
 import { RecipePage } from "@recipe";
-import { getRecipe } from "@services";
+import { getRecipe } from "@search/service";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/recipe/$recipeId")({

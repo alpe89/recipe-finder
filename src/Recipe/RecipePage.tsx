@@ -1,4 +1,4 @@
-import { Recipe } from "@services";
+import { Recipe } from "@search/service";
 import { BookmarkButton, IngredientsIcon, StepsIcon } from "./components";
 
 import placeholder from "../assets/placeholder.svg";
