@@ -38,5 +38,6 @@ The best recipes app… ever!
 
 - This is a quick POC, so I skipped CI/CD and deployment details
 - The design is intentionally minimal but responsive across all screen sizes
+- The color are chosen with the hang of "freshness" and this is why I have used a green as the brand color
 - I used a Domain Driven Design structure, with each domain (Recipe, Search, and Favourites) storing its own components, hooks, and services
-- I prioritized full feature implementation over early unit testing (hence the commit history); some tests were added later just to cover basic functionality
+- I prioritized full feature implementation over early unit testing (hence the commit history); I planned to add some unit test examples but time ran over
